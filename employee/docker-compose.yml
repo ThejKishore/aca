@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  employee-svc:
+    image: thej1/employee-svc:latest
+    ports:
+      - 7101:7101
+    networks:
+      - testlocal
+#  employee-svc-dapr:
+#    image: "daprio/daprd:edge"
+#    command: [ "./daprd",
+#               "-app-id", "employee-svc",
+#               "-app-port", "7101",
+#               "-app-protocol","http",
+#               "-dapr-http-port", "3501",
+#               "-dapr-grpc-port", "50001",
+#               "-log-level", "debug",
+#               "-components-path", "/components" ]
+#    volumes:
+#      - "./components/:/components"
+#    depends_on:
+#      - employee-svc
+#    network_mode: "service:employee-svc"
+
+networks:
+  testlocal:
+    driver: bridge
+
