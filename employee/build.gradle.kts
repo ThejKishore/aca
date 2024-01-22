@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.kish.learn"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.2-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -28,12 +28,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    implementation("io.dapr:dapr-sdk:1.10.0")
-    // Dapr"s SDK for Actors (optional).
-    implementation("io.dapr:dapr-sdk-actors:1.10.0")
-    // Dapr"s SDK integration with SpringBoot (optional).
-    implementation("io.dapr:dapr-sdk-springboot:1.10.0")
-
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
@@ -48,7 +42,7 @@ docker {
     springBootApplication {
         baseImage.set("mcr.microsoft.com/java/jdk:17-zulu-alpine")
         ports.set(listOf(7101, 7101))
-        images.set(setOf("thej1/employee-svc:0.0.1", "thej1/employee-svc:latest"))
+        images.set(setOf("thej1/employee-svc:0.0.2", "thej1/employee-svc:latest"))
 //        jvmArgs.set(listOf("-Dspring.profiles.active=production", "-Xmx2048m"))
     }
 }
